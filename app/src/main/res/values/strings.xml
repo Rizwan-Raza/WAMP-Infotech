@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">WAMP Infotech</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">WAMP Infotech</string>
+    <string name="nav_header_subtitle">https://wampinfotech.com/</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="q_query_head">Your Search For Digital Partner Ends Here!</string>
+    <string name="q_query_subhead">Please fill this short form below so that we can reach out to you as soon as possible!</string>
+    <string name="q_query_desc_hint">How can we help you?</string>
+    <string name="q_query_company_hint">Comapny</string>
+    <string name="q_query_mobile_hint">Mobile Number</string>
+    <string name="q_query_email_hint">Email</string>
+    <string name="q_query_name_hint">Name</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_about_us">About Us</string>
+    <string name="nav_services">Services</string>
+    <string name="nav_our_work">Our Work</string>
+    <string name="nav_blog">Blog</string>
+    <string name="nav_contact_us">Contact Us</string>
+    <string name="nav_communicate">Communicate</string>
+    <string name="banner">We Are Making People</string>
+    <string name="brand_email">wampinfotech@gmail.com</string>
+</resources>

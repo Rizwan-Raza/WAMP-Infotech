@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/nav_home" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_group_black_24dp"
+            android:title="@string/nav_about_us" />
+        <item
+            android:id="@+id/nav_services"
+            android:icon="@drawable/ic_phonelink_black_24dp"
+            android:title="@string/nav_services" />
+        <item
+            android:id="@+id/nav_our_work"
+            android:icon="@drawable/ic_whatshot_black_24dp"
+            android:title="@string/nav_our_work" />
+    </group>
+
+    <item android:title="@string/nav_communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_blog"
+                android:icon="@drawable/ic_forum_black_24dp"
+                android:title="@string/nav_blog" />
+            <item
+                android:id="@+id/nav_contact"
+                android:icon="@drawable/ic_contact_mail_black_24dp"
+                android:title="@string/nav_contact_us" />
+        </menu>
+    </item>
+
+</menu>
