@@ -5,28 +5,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="@dimen/large_gap">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="wrap_content"
         android:text="@string/q_query_head"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:layout_marginBottom="@dimen/large_gap"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="wrap_content"
         android:text="@string/q_query_subhead"
-        android:textSize="16sp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
     <EditText
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="@dimen/small_gap"
+        android:layout_marginTop="@dimen/small_gap"
         android:hint="@string/q_query_name_hint"
         android:inputType="textPersonName" />
 
@@ -34,8 +33,8 @@
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginBottom="@dimen/small_gap"
+        android:layout_marginTop="@dimen/small_gap"
         android:hint="@string/q_query_email_hint"
         android:inputType="textEmailAddress" />
 
@@ -43,8 +42,8 @@
         android:id="@+id/mobile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginBottom="@dimen/small_gap"
+        android:layout_marginTop="@dimen/small_gap"
         android:hint="@string/q_query_mobile_hint"
         android:inputType="phone" />
 
@@ -52,8 +51,8 @@
         android:id="@+id/company"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginBottom="@dimen/small_gap"
+        android:layout_marginTop="@dimen/small_gap"
         android:hint="@string/q_query_company_hint"
         android:inputType="textCapWords" />
 
@@ -61,8 +60,8 @@
         android:id="@+id/desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginBottom="@dimen/large_gap"
+        android:layout_marginTop="@dimen/small_gap"
         android:hint="@string/q_query_desc_hint"
         android:inputType="textShortMessage" />
 
@@ -72,8 +71,8 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:onClick="sendMail"
-        android:text="Send"
-        android:textColor="@android:color/white" />
+        android:text="@string/send"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Inverse" />
 </LinearLayout>
 
 

@@ -26,7 +26,6 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/media_image"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
                 android:contentDescription="@string/banner"
@@ -37,35 +36,31 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/default_gap"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="@dimen/large_gap">
 
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:text="WAMP Infotech Pvt. Ltd."
-                    android:textSize="20sp"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold" />
+                    android:layout_marginBottom="@dimen/large_gap"
+                    android:text="@string/nav_header_title"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="WAMP InfoTech Pvt. Ltd. WAMP InfoTech Pvt. Ltd. is mainly a web and programming improvement organization, we have our arms extended in the IT Support, Business Support and Digital Marketing"
-                    android:textSize="16sp" />
+                    android:text="@string/h_wamp_c"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginTop="32dp"
-                    android:text="Some Services offered by Us"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:layout_marginBottom="@dimen/large_gap"
+                    android:layout_marginTop="@dimen/xlarge_gap"
+                    android:text="@string/h_s_head"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
 
                 <LinearLayout
@@ -76,125 +71,80 @@
                     <android.support.v7.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="16dp">
+                        android:layout_marginBottom="@dimen/large_gap">
 
-                        <LinearLayout
+                        <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:padding="8dp">
-
-                            <ImageView
-                                android:id="@+id/h_s_i_1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_color_lens_black_24dp" />
-
-                            <TextView
-                                android:id="@+id/h_s_h_1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Creative Design"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp" />
-                        </LinearLayout>
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_color_lens_black_24dp"
+                            android:drawableLeft="@drawable/ic_color_lens_black_24dp"
+                            android:gravity="center"
+                            android:padding="@dimen/default_gap"
+                            android:text="@string/h_s_c_1"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@android:color/black" />
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="16dp">
+                        android:layout_marginBottom="@dimen/large_gap">
 
-                        <LinearLayout
+                        <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:padding="8dp">
-
-                            <ImageView
-                                android:id="@+id/h_s_i_2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_code_black_24dp" />
-
-                            <TextView
-                                android:id="@+id/h_s_h_2"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Web Development"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp" />
-                        </LinearLayout>
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_code_black_24dp"
+                            android:drawableLeft="@drawable/ic_code_black_24dp"
+                            android:gravity="center"
+                            android:padding="@dimen/default_gap"
+                            android:text="@string/h_s_c_2"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@android:color/black" />
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="16dp">
+                        android:layout_marginBottom="@dimen/large_gap">
 
-                        <LinearLayout
+                        <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:padding="8dp">
-
-                            <ImageView
-                                android:id="@+id/h_s_i_3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_shopping_cart_black_24dp" />
-
-                            <TextView
-                                android:id="@+id/h_s_h_3"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="E-Commerce Solution"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp" />
-                        </LinearLayout>
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_shopping_cart_black_24dp"
+                            android:drawableLeft="@drawable/ic_shopping_cart_black_24dp"
+                            android:gravity="center"
+                            android:padding="@dimen/default_gap"
+                            android:text="@string/h_s_c_3"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@android:color/black" />
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="16dp">
+                        android:layout_marginBottom="@dimen/large_gap">
 
-                        <LinearLayout
+                        <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:padding="8dp">
 
-                            <ImageView
-                                android:id="@+id/h_s_i_4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_desktop_windows_black_24dp" />
-
-                            <TextView
-                                android:id="@+id/h_s_h_4"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Digital Marketing"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp" />
-                        </LinearLayout>
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_desktop_windows_black_24dp"
+                            android:drawableLeft="@drawable/ic_desktop_windows_black_24dp"
+                            android:gravity="center"
+                            android:padding="@dimen/default_gap"
+                            android:text="@string/h_s_c_4"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@android:color/black" />
                     </android.support.v7.widget.CardView>
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginTop="32dp"
-                    android:text="Why Most Websites Fail?"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:layout_marginBottom="@dimen/large_gap"
+                    android:layout_marginTop="@dimen/xlarge_gap"
+                    android:text="@string/h_wf_head"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -204,87 +154,78 @@
                     <android.support.v7.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="16dp">
+                        android:layout_marginBottom="@dimen/large_gap">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
-                            android:padding="8dp">
+                            android:padding="@dimen/default_gap">
 
                             <TextView
-                                android:id="@+id/h_wf_h_1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Lack of Building Elements"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp" />
+                                android:text="@string/h_wf_sh1"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
                             <TextView
-                                android:id="@+id/h_wf_c_1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:paddingTop="8dp"
-                                android:text="In the event that site guests don't believe you as a respectable organization then they will no doubt not work with you. Our interface creators and online advertisers have led various tests to discover what works and what doesn't with regards to put stock in building components. Investigate this test we directed alone web shape."
-                                android:textSize="16sp" />
+                                android:paddingTop="@dimen/default_gap"
+                                android:text="@string/h_wf_c1"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="16dp">
+                        android:layout_marginBottom="@dimen/large_gap">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
-                            android:padding="8dp">
+                            android:padding="@dimen/default_gap">
 
                             <TextView
-                                android:id="@+id/h_wf_h_2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Message Mismatching"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp" />
+                                android:text="@string/h_wf_sh2"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
                             <TextView
-                                android:id="@+id/h_wf_c_2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:paddingTop="8dp"
-                                android:text="This is the point at which the informing on your site doesn't coordinate with the desires set by your promoting or does not satisfy the necessities of your potential clients. This can bring about high bob rates and a low ROI for a site that is generally all around outlined. That is the reason we break down your client base and to better comprehend their requirements to make the fitting informing on the web deals procedure for your site."
-                                android:textSize="16sp" />
+                                android:paddingTop="@dimen/default_gap"
+                                android:text="@string/h_wf_c2"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="16dp">
+                        android:layout_marginBottom="@dimen/large_gap">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
-                            android:padding="8dp">
+                            android:padding="@dimen/default_gap">
 
                             <TextView
-                                android:id="@+id/h_wf_h_3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Web Developement Shortcoming"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp" />
+                                android:text="@string/h_wf_sh3"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
                             <TextView
-                                android:id="@+id/h_wf_c_3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:paddingTop="8dp"
-                                android:text="Too many times, front-end coders and back-end developers take shortcuts. Things like slow page load time, incompatibility with specific web browsers or mobile devices, and broken pages lead to potential customers leaving your website. That is why we have strict development standards that make our websites compatible, fast, and ready for search engine optimization."
-                                android:textSize="16sp" />
+                                android:paddingTop="@dimen/default_gap"
+                                android:text="@string/h_wf_c3"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 
@@ -294,12 +235,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginTop="32dp"
-                    android:text="Why you Should Choose Us?"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:layout_marginBottom="@dimen/large_gap"
+                    android:layout_marginTop="@dimen/xlarge_gap"
+                    android:text="@string/h_why_head"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -309,126 +248,90 @@
                     <android.support.v7.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="16dp">
+                        android:layout_marginBottom="@dimen/large_gap">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
-                            android:padding="8dp">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:id="@+id/h_cu_i_1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/ic_public_black_24dp" />
-
-                                <TextView
-                                    android:id="@+id/h_ch_h_1"
+                            android:padding="@dimen/default_gap">
+                            <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="We keep you modernize"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
-                            </LinearLayout>
+                                    android:text="@string/h_why_sh1"
+                                    android:drawableStart="@drawable/ic_public_black_24dp"
+                                    android:drawableLeft="@drawable/ic_public_black_24dp"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:textColor="@android:color/black" />
 
                             <TextView
-                                android:id="@+id/h_ch_c_1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:paddingTop="8dp"
-                                android:text="We update you as often as possible with single purpose of contact on all turning point culmination through basecamp."
-                                android:textSize="16sp" />
+                                android:paddingTop="@dimen/default_gap"
+                                android:text="@string/h_why_c1"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="16dp">
+                        android:layout_marginBottom="@dimen/large_gap">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
-                            android:padding="8dp">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:id="@+id/h_cu_i_2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/ic_access_time_black_24dp" />
-
-                                <TextView
-                                    android:id="@+id/h_ch_h_2"
+                            android:padding="@dimen/default_gap">
+                            <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="We hand over on time"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
-                            </LinearLayout>
+                                    android:text="@string/h_why_sh2"
+                                    android:drawableStart="@drawable/ic_access_time_black_24dp"
+                                    android:drawableLeft="@drawable/ic_access_time_black_24dp"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    android:textColor="@android:color/black" />
 
                             <TextView
-                                android:id="@+id/h_ch_c_2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:paddingTop="8dp"
-                                android:text="We hand over as promised in reasonable time."
-                                android:textSize="16sp" />
+                                android:paddingTop="@dimen/default_gap"
+                                android:text="@string/h_why_c2"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="16dp">
+                        android:layout_marginBottom="@dimen/large_gap">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
-                            android:padding="8dp">
+                            android:padding="@dimen/default_gap">
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:id="@+id/h_cu_i_3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/ic_thumb_up_black_24dp" />
-
-                                <TextView
+                            <TextView
                                     android:id="@+id/h_ch_h_3"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="We get it completed"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="18sp" />
-                            </LinearLayout>
+                                    android:text="@string/h_why_sh3"
+                                    android:drawableStart="@drawable/ic_thumb_up_black_24dp"
+                                    android:drawableLeft="@drawable/ic_thumb_up_black_24dp"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    android:textColor="@android:color/black" />
 
                             <TextView
                                 android:id="@+id/h_ch_c_3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:paddingTop="8dp"
-                                android:text="We get the project done as per scope of work defined."
-                                android:textSize="16sp" />
+                                android:paddingTop="@dimen/default_gap"
+                                android:text="@string/h_why_c3"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
                 </LinearLayout>

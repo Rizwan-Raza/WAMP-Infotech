@@ -2,7 +2,7 @@
     <string name="app_name">WAMP Infotech</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">WAMP Infotech</string>
+    <string name="nav_header_title">WAMP Infotech Pvt. Ltd.</string>
     <string name="nav_header_subtitle">https://wampinfotech.com/</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
@@ -22,4 +22,28 @@
     <string name="nav_communicate">Communicate</string>
     <string name="banner">We Are Making People</string>
     <string name="brand_email">wampinfotech@gmail.com</string>
+    <string name="h_wamp_c">WAMP InfoTech Pvt. Ltd. is mainly a web and programming improvement organization, we have our arms extended in the IT Support, Business Support and Digital Marketing</string>
+    <string name="h_s_head">Some Services offered by Us</string>
+    <string name="h_s_c_1">Creative Design</string>
+    <string name="h_s_c_2">Web Development</string>
+    <string name="h_s_c_3">E-Commerce Solution</string>
+    <string name="h_s_c_4">Digital Marketing</string>
+    <string name="h_wf_head">Why Most Websites Fail?</string>
+    <string name="h_wf_sh1">Lack of Building Elements</string>
+    <string name="h_wf_c1">In the event that site guests don\'t believe you as a respectable organization then they will no doubt not work with you. Our interface creators and online advertisers have led various tests to discover what works and what doesn\'t with regards to put stock in building components. Investigate this test we directed alone web shape.</string>
+    <string name="h_wf_sh2">Message Mismatching</string>
+    <string name="h_wf_c2">This is the point at which the informing on your site doesn\'t coordinate with the desires set by your promoting or does not satisfy the necessities of your potential clients. This can bring about high bob rates and a low ROI for a site that is generally all around outlined. That is the reason we break down your client base and to better comprehend their requirements to make the fitting informing on the web deals procedure for your site.</string>
+    <string name="h_wf_sh3">Web Development Shortcoming</string>
+    <string name="h_wf_c3">Too many times, front-end coders and back-end developers take shortcuts. Things like slow page load time, incompatibility with specific web browsers or mobile devices, and broken pages lead to potential customers leaving your website. That is why we have strict development standards that make our websites compatible, fast, and ready for search engine optimization.</string>
+    <string name="h_why_head">Why you Should Choose Us?</string>
+    <string name="h_why_sh1">We keep you modernize</string>
+    <string name="h_why_c1">We update you as often as possible with single purpose of contact on all turning point culmination through basecamp.</string>
+    <string name="h_why_sh2">We hand over on time</string>
+    <string name="h_why_sh3">We get it completed</string>
+    <string name="h_why_c2">We hand over as promised in reasonable time.</string>
+    <string name="h_why_c3">We get the project done as per scope of work defined.</string>
+    <string name="send">Send</string>
+    <string name="au_w_c1">WAMP InfoTech Pvt. Ltd. WAMP InfoTech Pvt. Ltd. is mainly a web and programming improvement organization, we have our arms extended in the IT Support, Business Support and Digital Marketing. We have our workplaces in New Delhi (Head Office) and in USA (Marketing).</string>
+    <string name="au_m_c1">WAMP InfoTech Pvt. Ltd. was built by Momin Fazal, Mohd Parvez Alam, S.M. Faris, Rahul Sharma, Mohd Ashraf and Zoeb Hassan in 2015. Being a full service Digital Marketing agency, our goal is to provide the best services at affordable rates. Our expertise extends from Web Development, Creative Design, Media Planning and Online Reputation Management.</string>
+    <string name="au_m_h1">Our Management</string>
 </resources>
