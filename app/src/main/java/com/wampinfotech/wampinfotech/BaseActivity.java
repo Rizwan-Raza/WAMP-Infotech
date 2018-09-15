@@ -1,7 +1,10 @@
 package com.wampinfotech.wampinfotech;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.Bundle;
+import android.net.Uri;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -10,13 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
+@SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreateDrawer() {
 
         Toolbar toolbar = this.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -29,6 +32,12 @@ public class BaseActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    public void setContentView(@LayoutRes int layoutResID) {
+        super.setContentView(layoutResID);
+        onCreateDrawer();
     }
 
     @Override
@@ -65,7 +74,7 @@ public class BaseActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -82,12 +91,21 @@ public class BaseActivity extends AppCompatActivity
         } else if (id == R.id.nav_blog) {
 
         } else if (id == R.id.nav_contact) {
-            Intent intent = new Intent(this, QuickQuery.class);
-            startActivity(intent);
+            quickQueryRedirection(findViewById(id));
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    public void brandClickRedirection(View view) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(getString(R.string.nav_header_subtitle)));
+        startActivity(intent);
+    }
+
+    public void quickQueryRedirection(View view) {
+        Intent intent = new Intent(this, QuickQuery.class);
+        startActivity(intent);
     }
 }
