@@ -1,0 +1,279 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ScrollPanel">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            style="@style/FullBleedBannerImage"
+            android:contentDescription="@string/banner"
+            android:src="@drawable/banner1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_gap"
+            android:orientation="vertical"
+            android:padding="@dimen/large_gap">
+
+
+            <TextView
+                style="@style/MainHeadTitle"
+                android:text="@string/nav_header_title" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/large_gap"
+                android:text="@string/h_wamp_c"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+            <TextView
+                style="@style/MainHeadTitle"
+                android:text="@string/h_s_head" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView
+                    style="@style/ServiceCard"
+                    android:tag="@string/s_sh_1">
+
+                    <TextView
+                        style="@style/ServiceCardContentText"
+                        android:drawableLeft="@drawable/ic_color_lens_black_24dp"
+                        android:drawableStart="@drawable/ic_color_lens_black_24dp"
+                        android:text="@string/h_s_c_1" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    style="@style/ServiceCard"
+                    android:tag="@string/h_s_c_2">
+
+                    <TextView
+                        style="@style/ServiceCardContentText"
+                        android:drawableLeft="@drawable/ic_code_black_24dp"
+                        android:drawableStart="@drawable/ic_code_black_24dp"
+                        android:text="@string/h_s_c_2" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView style="@style/AppCard">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_shopping_cart_black_24dp"
+                        android:drawableStart="@drawable/ic_shopping_cart_black_24dp"
+                        android:gravity="center"
+                        android:padding="@dimen/default_gap"
+                        android:text="@string/h_s_c_3"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@android:color/black" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView style="@style/AppCard">
+
+                    <TextView
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_desktop_windows_black_24dp"
+                        android:drawableStart="@drawable/ic_desktop_windows_black_24dp"
+                        android:gravity="center"
+                        android:padding="@dimen/default_gap"
+                        android:text="@string/h_s_c_4"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@android:color/black" />
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/large_gap"
+                android:layout_marginTop="@dimen/xlarge_gap"
+                android:text="@string/h_wf_head"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView style="@style/AppCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/default_gap">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/h_wf_sh1"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/default_gap"
+                            android:text="@string/h_wf_c1"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView style="@style/AppCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/default_gap">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/h_wf_sh2"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/default_gap"
+                            android:text="@string/h_wf_c2"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView style="@style/AppCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/default_gap">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/h_wf_sh3"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/default_gap"
+                            android:text="@string/h_wf_c3"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/large_gap"
+                android:layout_marginTop="@dimen/xlarge_gap"
+                android:text="@string/h_why_head"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView style="@style/AppCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/default_gap">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_public_black_24dp"
+                            android:drawableStart="@drawable/ic_public_black_24dp"
+                            android:gravity="center"
+                            android:text="@string/h_why_sh1"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/default_gap"
+                            android:text="@string/h_why_c1"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView style="@style/AppCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/default_gap">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_access_time_black_24dp"
+                            android:drawableStart="@drawable/ic_access_time_black_24dp"
+                            android:gravity="center"
+                            android:text="@string/h_why_sh2"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/default_gap"
+                            android:text="@string/h_why_c2"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView style="@style/AppCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/default_gap">
+
+                        <TextView
+                            android:id="@+id/h_ch_h_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_thumb_up_black_24dp"
+                            android:drawableStart="@drawable/ic_thumb_up_black_24dp"
+                            android:gravity="center"
+                            android:text="@string/h_why_sh3"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:id="@+id/h_ch_c_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/default_gap"
+                            android:text="@string/h_why_c3"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

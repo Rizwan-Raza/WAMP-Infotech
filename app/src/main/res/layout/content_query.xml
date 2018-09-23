@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".QueryActivity"
+    tools:showIn="@layout/activity_query">
+
+    <ScrollView
+        android:id="@+id/quick_query_layout"
+        style="@style/ScrollPanel">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/large_gap">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/large_gap"
+                android:text="@string/q_query_head"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/q_query_subhead"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/small_gap"
+                android:layout_marginTop="@dimen/small_gap"
+                android:hint="@string/q_query_name_hint"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/small_gap"
+                android:layout_marginTop="@dimen/small_gap"
+                android:hint="@string/q_query_email_hint"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/mobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/small_gap"
+                android:layout_marginTop="@dimen/small_gap"
+                android:hint="@string/q_query_mobile_hint"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/company"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/small_gap"
+                android:layout_marginTop="@dimen/small_gap"
+                android:hint="@string/q_query_company_hint"
+                android:inputType="textCapWords" />
+
+            <EditText
+                android:id="@+id/desc"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/large_gap"
+                android:layout_marginTop="@dimen/small_gap"
+                android:layout_weight="1"
+                android:hint="@string/q_query_desc_hint"
+                android:inputType="textLongMessage" />
+        </LinearLayout>
+
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
