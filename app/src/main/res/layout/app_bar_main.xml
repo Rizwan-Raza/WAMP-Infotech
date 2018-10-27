@@ -23,12 +23,20 @@
     <include layout="@layout/content_main" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:onClick="quickQueryRedirection"
         android:src="@drawable/ic_email_white_24dp" />
+
+    <!-- <TextView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:padding="@dimen/large_gap"
+        android:text="&#169; 2017-18 | All rights reserved"
+        android:textColor="@android:color/white" /> -->
 
 </android.support.design.widget.CoordinatorLayout>

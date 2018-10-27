@@ -41,18 +41,13 @@
         <item name="android:layout_marginTop">@dimen/large_gap</item>
     </style>
 
-    <style name="ServiceCard" parent="AppCard">
-        <item name="android:onClick">serviceActivity</item>
-    </style>
-
     <style name="AppCard">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:onClick">serviceActivity</item>
         <item name="android:layout_marginBottom">@dimen/large_gap</item>
     </style>
 
-    <style name="ServiceCardContentText" parent="TextAppearance.AppCompat.Medium">
+    <style name="AppCardContentText" parent="TextAppearance.AppCompat.Medium">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>

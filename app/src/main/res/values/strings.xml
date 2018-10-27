@@ -17,7 +17,7 @@
     <string name="nav_about_us">About Us</string>
     <string name="nav_services">Services</string>
     <string name="nav_our_work">Our Work</string>
-    <string name="nav_blog">Blog</string>
+    <string name="nav_login">Login</string>
     <string name="nav_contact_us">Contact Us</string>
     <string name="nav_communicate">Communicate</string>
     <string name="banner">We Are Making People</string>
@@ -42,7 +42,6 @@
     <string name="h_why_sh3">We get it completed</string>
     <string name="h_why_c2">We hand over as promised in reasonable time.</string>
     <string name="h_why_c3">We get the project done as per scope of work defined.</string>
-    <string name="send">Send</string>
     <string name="au_w_c1">WAMP InfoTech Pvt. Ltd. WAMP InfoTech Pvt. Ltd. is mainly a web and programming improvement organization, we have our arms extended in the IT Support, Business Support and Digital Marketing. We have our workplaces in New Delhi (Head Office) and in USA (Marketing).</string>
     <string name="au_m_c1">WAMP InfoTech Pvt. Ltd. was built by Momin Fazal, Mohd Parvez Alam, S.M. Faris, Rahul Sharma, Mohd Ashraf and Zoeb Hassan in 2015. Being a full service Digital Marketing agency, our goal is to provide the best services at affordable rates. Our expertise extends from Web Development, Creative Design, Media Planning and Online Reputation Management.</string>
     <string name="au_m_h1">Our Management</string>
@@ -74,5 +73,35 @@
     <string name="ow_wurl_6">http://www.wampinstitute.in/</string>
     <string name="title_activity_query">Quick Query</string>
     <string name="web_design_main">Web Design has different parts such as Graphic Designing, SEO, and Interface Design etc. There is a team to work on it, they decide what will be the look, how will the texts be written, what will be the colour of it, etc these all things are very important in web designing. If you want to start the web designing work you will have many options</string>
-    <string name="web_development_main">WAMP Infotech Pvt Ltd is an unmistakable Website Development Company in Delhi, India. We completely comprehend the goal of web improvement. Regardless of whether you need to produce request or simply need a profile for your organization or you need to pitch items to the purchasers, we do site improvement as per your detail</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="tech_image_alt">Tech Image</string>
+
+    <!--<string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>-->
+    <string name="admob_app_id">ca-app-pub-1522154052992149~9012054311</string>
+
+    <!--<string name="ad_unit_id">ca-app-pub-3940256099942544/5224354917</string>-->
+    <string name="ad_unit_id">ca-app-pub-1522154052992149/2924200253</string>
+    <string name="team_member_avatar_alt">Team Member Avatar</string>
+    <string name="send">Send</string>
+    <string name="discard">Discard</string>
+    <string name="stay_here">Stay Here</string>
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit query?</string>
+    <string name="wamp_address">Top 6 26 E White House, Khizrabad, New Delhi, Delhi 110025</string>
+    <string name="title_activity_login">Sign in</string>
+    <!-- Strings related to login -->
+    <string name="prompt_username">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="archue">https://archue.com</string>
+    <string name="gloriastylx">https://gloriastylx.com</string>
+    <string name="redolance_india">https://redolanceindia.in</string>
+    <string name="a2zinterior">https://a2zinterior.in</string>
+    <string name="service_icon">Service Icon</string>
 </resources>

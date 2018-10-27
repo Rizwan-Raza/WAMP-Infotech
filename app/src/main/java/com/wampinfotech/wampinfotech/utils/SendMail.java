@@ -1,4 +1,4 @@
-package com.wampinfotech.wampinfotech;
+package com.wampinfotech.wampinfotech.utils;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -24,18 +24,18 @@ public class SendMail extends AsyncTask<Void, Void, Void> {
     //Declaring Variables
     // Pta nhi kya leak ho rha hai ...
     @SuppressLint("StaticFieldLeak")
-    private Context context;
+    private final Context context;
 
     //Information to send email
-    private String email;
-    private String subject;
-    private String message;
+    private final String email;
+    private final String subject;
+    private final String message;
 
     //Progress dialog to show while sending email
     private ProgressDialog progressDialog;
 
     //Class Constructor
-    SendMail(Context context, String email, String subject, String message) {
+    public SendMail(Context context, String email, String subject, String message) {
         //Initializing variables
         this.context = context;
         this.email = email;

@@ -37,22 +37,22 @@
 
 
                 <android.support.v7.widget.CardView
-                    style="@style/ServiceCard"
+                    style="@style/AppCard"
                     android:tag="@string/s_sh_1">
 
                     <TextView
-                        style="@style/ServiceCardContentText"
+                        style="@style/AppCardContentText"
                         android:drawableLeft="@drawable/ic_color_lens_black_24dp"
                         android:drawableStart="@drawable/ic_color_lens_black_24dp"
                         android:text="@string/s_sh_1" />
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    style="@style/ServiceCard"
+                    style="@style/AppCard"
                     android:tag="@string/h_s_c_2">
 
                     <TextView
-                        style="@style/ServiceCardContentText"
+                        style="@style/AppCardContentText"
                         android:drawableLeft="@drawable/ic_code_black_24dp"
                         android:drawableStart="@drawable/ic_code_black_24dp"
                         android:text="@string/h_s_c_2" />
@@ -60,7 +60,7 @@
 
 
                 <android.support.v7.widget.CardView
-                    style="@style/ServiceCard"
+                    style="@style/AppCard"
                     android:tag="@string/s_sh_1">
 
                     <TextView
@@ -76,7 +76,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    style="@style/ServiceCard"
+                    style="@style/AppCard"
                     android:tag="@string/s_sh_1">
 
                     <TextView
@@ -93,7 +93,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    style="@style/ServiceCard"
+                    style="@style/AppCard"
                     android:tag="@string/s_sh_1">
 
                     <TextView
@@ -109,7 +109,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    style="@style/ServiceCard"
+                    style="@style/AppCard"
                     android:tag="@string/s_sh_1">
 
                     <TextView
@@ -125,7 +125,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    style="@style/ServiceCard"
+                    style="@style/AppCard"
                     android:tag="@string/s_sh_1">
 
                     <TextView
@@ -141,7 +141,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    style="@style/ServiceCard"
+                    style="@style/AppCard"
                     android:tag="@string/s_sh_1">
 
                     <TextView
@@ -158,7 +158,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    style="@style/ServiceCard"
+                    style="@style/AppCard"
                     android:tag="@string/s_sh_1">
 
                     <TextView
@@ -174,7 +174,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    style="@style/ServiceCard"
+                    style="@style/AppCard"
                     android:tag="@string/s_sh_1">
 
                     <TextView
@@ -190,7 +190,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    style="@style/ServiceCard"
+                    style="@style/AppCard"
                     android:tag="@string/s_sh_1">
 
                     <TextView
@@ -206,7 +206,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    style="@style/ServiceCard"
+                    style="@style/AppCard"
                     android:tag="@string/s_sh_1">
 
                     <TextView
@@ -223,7 +223,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    style="@style/ServiceCard"
+                    style="@style/AppCard"
                     android:tag="@string/s_sh_1">
 
                     <TextView
@@ -239,7 +239,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    style="@style/ServiceCard"
+                    style="@style/AppCard"
                     android:tag="@string/s_sh_1">
 
                     <TextView
@@ -255,7 +255,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    style="@style/ServiceCard"
+                    style="@style/AppCard"
                     android:tag="@string/s_sh_1">
 
                     <TextView
