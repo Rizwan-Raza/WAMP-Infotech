@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- These are the options displayed in the gender drop-down Spinner -->
+    <string-array name="array_portal_options">
+        <item>@string/archue</item>
+        <item>@string/gloriastylx</item>
+        <item>@string/redolance_india</item>
+        <item>@string/a2zinterior</item>
+    </string-array>
+</resources>

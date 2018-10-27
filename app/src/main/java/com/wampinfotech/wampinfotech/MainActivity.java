@@ -1,5 +1,6 @@
 package com.wampinfotech.wampinfotech;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,10 +11,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
@@ -138,7 +143,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragment = new OurWorkFragment();
                 break;
             case R.id.nav_login:
-                startActivity(new Intent(this, LoginActivity.class));
+                tokenDialog();
+//                startActivity(new Intent(this, LoginActivity.class));
 //                fragment = new ServiceFragment();
                 break;
             case R.id.nav_contact:
@@ -242,4 +248,50 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onDestroy();
     }
 
+    void tokenDialog() {
+        // Creating alert Dialog with one Button
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+
+        //AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+
+        // Setting Dialog Title
+        alertDialog.setTitle("Token");
+
+        // Setting Dialog Message
+        alertDialog.setMessage("Enter Client Token");
+        final EditText input = new EditText(MainActivity.this);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        input.setLayoutParams(lp);
+        alertDialog.setView(input); // uncomment this line
+        //alertDialog.setView(input);
+
+        // Setting Icon to Dialog
+        alertDialog.setIcon(R.drawable.ic_lock_black_24dp);
+
+        // Setting Positive "Yes" Button
+        alertDialog.setPositiveButton("YES",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Write your code here to execute after dialog
+                        Toast.makeText(getApplicationContext(), "Password Matched", Toast.LENGTH_SHORT).show();
+                        Intent myIntent1 = new Intent(getBaseContext(), LoginActivity.class);
+                        startActivityForResult(myIntent1, 0);
+                    }
+                });
+        // Setting Negative "NO" Button
+        alertDialog.setNegativeButton("NO",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Write your code here to execute after dialog
+                        dialog.cancel();
+                    }
+                });
+
+        // closed
+
+        // Showing Alert Message
+        alertDialog.show();
+    }
 }

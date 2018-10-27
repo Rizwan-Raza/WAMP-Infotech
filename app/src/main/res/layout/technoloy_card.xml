@@ -1,0 +1,34 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/default_gap"
+        android:paddingStart="@dimen/default_gap"
+        android:paddingLeft="@dimen/default_gap"
+        android:paddingTop="@dimen/default_gap"
+        android:paddingEnd="@dimen/default_gap"
+        android:paddingRight="@dimen/default_gap">
+
+        <ImageView
+            android:id="@+id/tech_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/tech_image_alt"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_code_black_24dp" />
+
+        <TextView
+            android:id="@+id/tech_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/default_gap"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+    </LinearLayout>
+</android.support.v7.widget.CardView>
