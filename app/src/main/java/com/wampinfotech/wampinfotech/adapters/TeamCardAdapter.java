@@ -65,6 +65,9 @@ public class TeamCardAdapter extends ArrayAdapter <TeamModal> {
 //            Log.e("RexTerminous", currentMember.getImageUrl());
             Picasso.get()
                     .load(currentMember.getImageUrl())
+                    .placeholder(R.drawable.ic_account_circle_black_24dp) // can also be a drawable
+                    .error(R.drawable.ic_account_circle_black_24dp) // will be displayed if the image cannot be loaded
+                    .noFade()
                     .transform(new CircleTransformation())
                     .into(imageView);
         }

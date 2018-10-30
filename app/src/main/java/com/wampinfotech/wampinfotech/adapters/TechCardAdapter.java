@@ -59,8 +59,22 @@ public class TechCardAdapter extends ArrayAdapter <TechModal> {
         if (currentTech != null) {
             Picasso.get()
                     .load(currentTech.getImageUrl())
+                    .placeholder(R.drawable.ic_code_black_24dp) // can also be a drawable
+                    .error(R.drawable.ic_perm_scan_wifi_black_24dp) // will be displayed if the image cannot be loaded
+                    .noFade()
                     .transform(new CircleTransformation())
-                    .into(imageView);
+                    .into(imageView, new com.squareup.picasso.Callback() {
+                        @Override
+                        public void onSuccess() {
+
+                        }
+
+                        @Override
+                        public void onError(Exception ex) {
+                            imageView.setScaleX(0.5f);
+                            imageView.setScaleY(0.5f);
+                        }
+                    });
         }
 
         // Return the whole list item layout (containing 2 TextViews) so that it can be shown in

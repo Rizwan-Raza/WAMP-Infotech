@@ -72,7 +72,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.wampinfotech.wampinfotech.MainActivity" />
         </activity>
-        <activity android:name=".DashboardActivity"></activity>
+        <activity
+            android:name=".DashboardActivity"
+            android:label="Admin Dashboard" />
     </application>
 
 </manifest>

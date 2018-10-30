@@ -10,12 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 
 /**
  * A login screen that offers login via email/password.
@@ -40,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * EditText field to enter the pet's gender
      */
-    private Spinner mPortalSpinner;
+//    private Spinner mPortalSpinner;
 
     private String adminConfigChoice;
 
@@ -65,42 +62,42 @@ public class LoginActivity extends AppCompatActivity {
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
-        mPortalSpinner = findViewById(R.id.spinner_portal);
-        setupSpinner();
+//        mPortalSpinner = findViewById(R.id.spinner_portal);
+//        setupSpinner();
     }
 
     /**
      * Setup the dropdown spinner that allows the user to select the gender of the pet.
      */
-    private void setupSpinner() {
-        // Create adapter for spinner. The list options are from the String array it will use
-        // the spinner will use the default layout
-        ArrayAdapter genderSpinnerAdapter = ArrayAdapter.createFromResource(this,
-                R.array.array_portal_options, android.R.layout.simple_spinner_item);
-
-        // Specify dropdown layout style - simple list view with 1 item per line
-        genderSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-
-        // Apply the adapter to the spinner
-        mPortalSpinner.setAdapter(genderSpinnerAdapter);
-
-        // Set the integer mSelected to the constant values
-        mPortalSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView <?> parent, View view, int position, long id) {
-                String selection = (String) parent.getItemAtPosition(position);
-                if (!TextUtils.isEmpty(selection)) {
-                    adminConfigChoice = selection;
-                }
-            }
-
-            // Because AdapterView is an abstract class, onNothingSelected must be defined
-            @Override
-            public void onNothingSelected(AdapterView <?> parent) {
-                adminConfigChoice = getString(R.string.archue);
-            }
-        });
-    }
+//    private void setupSpinner() {
+//        // Create adapter for spinner. The list options are from the String array it will use
+//        // the spinner will use the default layout
+//        ArrayAdapter genderSpinnerAdapter = ArrayAdapter.createFromResource(this,
+//                R.array.array_portal_options, android.R.layout.simple_spinner_item);
+//
+//        // Specify dropdown layout style - simple list view with 1 item per line
+//        genderSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+//
+//        // Apply the adapter to the spinner
+//        mPortalSpinner.setAdapter(genderSpinnerAdapter);
+//
+//        // Set the integer mSelected to the constant values
+//        mPortalSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView <?> parent, View view, int position, long id) {
+//                String selection = (String) parent.getItemAtPosition(position);
+//                if (!TextUtils.isEmpty(selection)) {
+//                    adminConfigChoice = selection;
+//                }
+//            }
+//
+//            // Because AdapterView is an abstract class, onNothingSelected must be defined
+//            @Override
+//            public void onNothingSelected(AdapterView <?> parent) {
+//                adminConfigChoice = getString(R.string.archue);
+//            }
+//        });
+//    }
 
 
     /**

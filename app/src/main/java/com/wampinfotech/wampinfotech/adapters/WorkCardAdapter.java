@@ -64,7 +64,21 @@ public class WorkCardAdapter extends ArrayAdapter <TeamModal> {
 //            Log.e("RexTerminous", currentMember.getImageUrl());
             Picasso.get()
                     .load(currentMember.getImageUrl())
-                    .into(imageView);
+                    .placeholder(R.drawable.banner_back2) // can also be a drawable
+                    .error(R.drawable.ic_perm_scan_wifi_black_24dp) // will be displayed if the image cannot be loaded
+                    .noFade()
+                    .into(imageView, new com.squareup.picasso.Callback() {
+
+                        @Override
+                        public void onSuccess() {
+                            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        }
+
+                        @Override
+                        public void onError(Exception ex) {
+                            imageView.setScaleType(ImageView.ScaleType.CENTER);
+                        }
+                    });
         }
 
         // Return the whole list item layout (containing 2 TextViews) so that it can be shown in

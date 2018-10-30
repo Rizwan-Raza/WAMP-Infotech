@@ -2,6 +2,7 @@ package com.wampinfotech.wampinfotech;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,10 +15,16 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.InputFilter;
+import android.text.InputType;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
@@ -25,6 +32,9 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.wampinfotech.wampinfotech.modals.Client;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RewardedVideoAdListener {
 
@@ -102,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (currentFragmentId == id) {
+        if (currentFragmentId == id && id != R.id.nav_login) {
             return false;
         }
 
@@ -143,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragment = new OurWorkFragment();
                 break;
             case R.id.nav_login:
+                Log.e("RexTerm", "Token Loading");
                 tokenDialog();
 //                startActivity(new Intent(this, LoginActivity.class));
 //                fragment = new ServiceFragment();
@@ -258,13 +269,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         alertDialog.setTitle("Token");
 
         // Setting Dialog Message
-        alertDialog.setMessage("Enter Client Token");
+//        alertDialog.setMessage("Enter Client Token");
         final EditText input = new EditText(MainActivity.this);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        input.setHint("Enter Client Token");
+        input.setHintTextColor(Color.GRAY);
         input.setLayoutParams(lp);
-        alertDialog.setView(input); // uncomment this line
+        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setWidth(LinearLayout.LayoutParams.WRAP_CONTENT);
+        input.setGravity(Gravity.CENTER);
+        input.setFilters(new InputFilter[]{new InputFilter.LengthFilter(8)});
+        final RelativeLayout view = new RelativeLayout(MainActivity.this);
+        view.setLayoutParams(lp);
+        view.setPadding(32, 16, 32, 0);
+        view.addView(input);
+        alertDialog.setView(view); // uncomment this line
         //alertDialog.setView(input);
 
         // Setting Icon to Dialog
@@ -274,8 +293,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         alertDialog.setPositiveButton("YES",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        // Write a message to the database
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        DatabaseReference myRef = database.getReference("clients");
+
+                        String key = myRef.push().getKey();
+                        Client client = new Client("20180001", "Hoga koi", "Archue", "https://archue.com", "https://archue.com/bna_denge_api");
+                        myRef.child(key).setValue(client);
                         // Write your code here to execute after dialog
                         Toast.makeText(getApplicationContext(), "Password Matched", Toast.LENGTH_SHORT).show();
+
                         Intent myIntent1 = new Intent(getBaseContext(), LoginActivity.class);
                         startActivityForResult(myIntent1, 0);
                     }
