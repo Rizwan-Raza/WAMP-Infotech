@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -17,7 +18,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.InputFilter;
 import android.text.InputType;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,8 +32,12 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.wampinfotech.wampinfotech.modals.Client;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RewardedVideoAdListener {
@@ -153,7 +157,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragment = new OurWorkFragment();
                 break;
             case R.id.nav_login:
-                Log.e("RexTerm", "Token Loading");
                 tokenDialog();
 //                startActivity(new Intent(this, LoginActivity.class));
 //                fragment = new ServiceFragment();
@@ -261,7 +264,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     void tokenDialog() {
         // Creating alert Dialog with one Button
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this, R.style.Theme_MaterialComponents_Dialog_MinWidth);
 
         //AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
 
@@ -293,23 +296,61 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         alertDialog.setPositiveButton("YES",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        final RelativeLayout rl = findViewById(R.id.progress_view);
+                        rl.setVisibility(View.VISIBLE);
                         // Write a message to the database
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference myRef = database.getReference("clients");
 
-                        String key = myRef.push().getKey();
-                        Client client = new Client("20180001", "Hoga koi", "Archue", "https://archue.com", "https://archue.com/bna_denge_api");
-                        myRef.child(key).setValue(client);
-                        // Write your code here to execute after dialog
-                        Toast.makeText(getApplicationContext(), "Password Matched", Toast.LENGTH_SHORT).show();
+                        Query query = myRef.orderByChild("clientToken").equalTo(input.getText().toString().trim());
 
-                        Intent myIntent1 = new Intent(getBaseContext(), LoginActivity.class);
-                        startActivityForResult(myIntent1, 0);
+                        query.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                long resultCount = dataSnapshot.getChildrenCount();
+                                if (resultCount == 1) {
+                                    Client currentClient = null;
+                                    for (DataSnapshot clientData :
+                                            dataSnapshot.getChildren()) {
+                                        currentClient = clientData.getValue(Client.class);
+                                        Toast.makeText(MainActivity.this, "Welcome " + currentClient.getClientName() + "!", Toast.LENGTH_SHORT).show();
+                                    }
+
+                                    Intent myIntent = new Intent(MainActivity.this, LoginActivity.class);
+                                    myIntent.putExtra("client", currentClient);
+                                    startActivity(myIntent);
+                                } else if (resultCount == 0) {
+                                    Snackbar.make(findViewById(R.id.content_main), "Invalid Token", Snackbar.LENGTH_INDEFINITE).setAction("Try Again", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Toast.makeText(MainActivity.this, "Sorry! Are you sure you entered proper Client Token", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }).show();
+//                                    Toast.makeText(MainActivity.this, "Sorry! Are you sure you entered proper Client Token", Toast.LENGTH_SHORT).show();
+                                } else {
+//                                    Toast.makeText(MainActivity.this, "Something went wrong! Contact App Administrator.", Toast.LENGTH_SHORT).show();
+                                }
+                                rl.setVisibility(View.GONE);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+//                        String key = myRef.push().getKey();
+//                        Client client = new Client("20180001", "Hoga koi", "Redolance", "https://redolanceindia.in", "https://redolanceindia.in/bna_denge_api");
+//                        myRef.child("redolance").setValue(client);
+                        // Write your code here to execute after dialog
+//                        Toast.makeText(getApplicationContext(), "Password Matched", Toast.LENGTH_SHORT).show();
                     }
                 });
         // Setting Negative "NO" Button
         alertDialog.setNegativeButton("NO",
-                new DialogInterface.OnClickListener() {
+                new DialogInterface.OnClickListener()
+
+                {
                     public void onClick(DialogInterface dialog, int which) {
                         // Write your code here to execute after dialog
                         dialog.cancel();

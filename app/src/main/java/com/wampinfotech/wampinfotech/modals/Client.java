@@ -1,8 +1,12 @@
 package com.wampinfotech.wampinfotech.modals;
 
-public class Client {
+import android.support.annotation.NonNull;
+
+import java.io.Serializable;
+
+public class Client implements Serializable {
     private String clientToken;
-    private String clientOwner;
+    private String clientName;
     private String projectName;
     private String projectUrl;
     private String projectVisitors;
@@ -10,9 +14,9 @@ public class Client {
     public Client() {
     }
 
-    public Client(String clientToken, String clientOwner, String projectName, String projectUrl, String projectVisitors) {
+    public Client(String clientToken, String clientName, String projectName, String projectUrl, String projectVisitors) {
         this.clientToken = clientToken;
-        this.clientOwner = clientOwner;
+        this.clientName = clientName;
         this.projectName = projectName;
         this.projectUrl = projectUrl;
         this.projectVisitors = projectVisitors;
@@ -22,8 +26,8 @@ public class Client {
         return clientToken;
     }
 
-    public String getClientOwner() {
-        return clientOwner;
+    public String getClientName() {
+        return clientName;
     }
 
     public String getProjectName() {
@@ -36,5 +40,11 @@ public class Client {
 
     public String getProjectVisitors() {
         return projectVisitors;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return getClientToken() + "-" + getClientName() + "-" + getProjectName() + "-" + getProjectUrl() + "-" + getProjectVisitors();
     }
 }
