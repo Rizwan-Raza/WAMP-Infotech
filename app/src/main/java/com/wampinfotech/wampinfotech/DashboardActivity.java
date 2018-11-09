@@ -10,19 +10,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.wampinfotech.wampinfotech.adapters.DashboardAdapter;
+import com.wampinfotech.wampinfotech.modals.Client;
 
 public class DashboardActivity extends AppCompatActivity {
+
+    private Client mClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // To retrieve object in second Activity
+        mClient = (Client) getIntent().getSerializableExtra("client");
+
         setContentView(R.layout.activity_dashboard);
 
         // Find the view pager that will allow the user to swipe between fragments
         ViewPager viewPager = findViewById(R.id.viewpager);
 
         // Create an adapter that knows which fragment should be shown on each page
-        DashboardAdapter adapter = new DashboardAdapter(this, getSupportFragmentManager());
+        DashboardAdapter adapter = new DashboardAdapter(this, getSupportFragmentManager(), mClient);
 
         // Set the adapter onto the view pager
         viewPager.setAdapter(adapter);
