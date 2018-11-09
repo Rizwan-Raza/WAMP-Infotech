@@ -1,33 +1,39 @@
 package com.wampinfotech.wampinfotech.modals;
 
-import android.support.annotation.NonNull;
-
 import java.io.Serializable;
 
 public class Client implements Serializable {
-    private String clientToken;
+    private String authApiUrl;
     private String clientName;
+    private String clientToken;
     private String projectName;
     private String projectUrl;
-    private String projectVisitors;
+    private String queriesApiUrl;
+    private String visitorsApiUrl;
 
     public Client() {
     }
 
-    public Client(String clientToken, String clientName, String projectName, String projectUrl, String projectVisitors) {
-        this.clientToken = clientToken;
+    public Client(String authApiUrl, String clientName, String clientToken, String projectName, String projectUrl, String queriesApiUrl, String visitorsApiUrl) {
+        this.authApiUrl = authApiUrl;
         this.clientName = clientName;
+        this.clientToken = clientToken;
         this.projectName = projectName;
         this.projectUrl = projectUrl;
-        this.projectVisitors = projectVisitors;
+        this.queriesApiUrl = queriesApiUrl;
+        this.visitorsApiUrl = visitorsApiUrl;
     }
 
-    public String getClientToken() {
-        return clientToken;
+    public String getAuthApiUrl() {
+        return authApiUrl;
     }
 
     public String getClientName() {
         return clientName;
+    }
+
+    public String getClientToken() {
+        return clientToken;
     }
 
     public String getProjectName() {
@@ -38,13 +44,24 @@ public class Client implements Serializable {
         return projectUrl;
     }
 
-    public String getProjectVisitors() {
-        return projectVisitors;
+    public String getQueriesApiUrl() {
+        return queriesApiUrl;
     }
 
-    @NonNull
+    public String getVisitorsApiUrl() {
+        return visitorsApiUrl;
+    }
+
     @Override
     public String toString() {
-        return getClientToken() + "-" + getClientName() + "-" + getProjectName() + "-" + getProjectUrl() + "-" + getProjectVisitors();
+        return "Client{" +
+                "authApiUrl='" + authApiUrl + '\'' +
+                ", clientName='" + clientName + '\'' +
+                ", clientToken='" + clientToken + '\'' +
+                ", projectName='" + projectName + '\'' +
+                ", projectUrl='" + projectUrl + '\'' +
+                ", queriesApiUrl='" + queriesApiUrl + '\'' +
+                ", visitorsApiUrl='" + visitorsApiUrl + '\'' +
+                '}';
     }
 }

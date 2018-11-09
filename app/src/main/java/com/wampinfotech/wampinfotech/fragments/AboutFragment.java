@@ -1,5 +1,5 @@
 
-package com.wampinfotech.wampinfotech;
+package com.wampinfotech.wampinfotech.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,6 +17,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.wampinfotech.wampinfotech.R;
 import com.wampinfotech.wampinfotech.adapters.TeamCardAdapter;
 import com.wampinfotech.wampinfotech.modals.TeamModal;
 import com.wampinfotech.wampinfotech.utils.ExGridView;

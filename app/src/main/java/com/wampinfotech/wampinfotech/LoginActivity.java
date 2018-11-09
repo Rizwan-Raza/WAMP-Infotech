@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -31,10 +32,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
+
+import javax.net.ssl.HttpsURLConnection;
 
 /**
  * A login screen that offers login via email/password.
@@ -47,14 +49,6 @@ public class LoginActivity extends AppCompatActivity {
     private static final String LOG_TAG = LoginActivity.class.getSimpleName();
 
 
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
-    };
-
     private Client mClient;
 
     // UI references.
@@ -62,15 +56,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-
-    /**
-     * EditText field to enter the pet's gender
-     */
-//    private Spinner mPortalSpinner;
-
-    private LoginAuthTask mLoginAuthTask;
-
-    private String adminConfigChoice;
 
     private static String makeHttpRequest(ClientAuth client) throws IOException {
         String jsonResponse = "";
@@ -80,10 +65,10 @@ public class LoginActivity extends AppCompatActivity {
             return jsonResponse;
         }
 
-        HttpURLConnection urlConnection = null;
+        HttpsURLConnection urlConnection = null;
         InputStream inputStream = null;
         try {
-            urlConnection = (HttpURLConnection) client.getAuthUrl().openConnection();
+            urlConnection = (HttpsURLConnection) client.getAuthUrl().openConnection();
 //            urlConnection.setReadTimeout(10000 /* milliseconds */);
 //            urlConnection.setConnectTimeout(15000 /* milliseconds */);
             urlConnection.setRequestMethod(client.getMethod());
@@ -123,39 +108,6 @@ public class LoginActivity extends AppCompatActivity {
         }
         return jsonResponse;
     }
-
-    /**
-     * Setup the dropdown spinner that allows the user to select the gender of the pet.
-     */
-//    private void setupSpinner() {
-//        // Create adapter for spinner. The list options are from the String array it will use
-//        // the spinner will use the default layout
-//        ArrayAdapter genderSpinnerAdapter = ArrayAdapter.createFromResource(this,
-//                R.array.array_portal_options, android.R.layout.simple_spinner_item);
-//
-//        // Specify dropdown layout style - simple list view with 1 item per line
-//        genderSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-//
-//        // Apply the adapter to the spinner
-//        mPortalSpinner.setAdapter(genderSpinnerAdapter);
-//
-//        // Set the integer mSelected to the constant values
-//        mPortalSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView <?> parent, View view, int position, long id) {
-//                String selection = (String) parent.getItemAtPosition(position);
-//                if (!TextUtils.isEmpty(selection)) {
-//                    adminConfigChoice = selection;
-//                }
-//            }
-//
-//            // Because AdapterView is an abstract class, onNothingSelected must be defined
-//            @Override
-//            public void onNothingSelected(AdapterView <?> parent) {
-//                adminConfigChoice = getString(R.string.archue);
-//            }
-//        });
-//    }
 
 
     /**
@@ -199,13 +151,13 @@ public class LoginActivity extends AppCompatActivity {
         tv_msg.setText("Welcome " + mClient.getClientName() + "!");
         tv_msg.setVisibility(View.VISIBLE);
         setupActionBar();
-        // Set up the login form.
-        mUsernameView = findViewById(R.id.email);
 
+        // Set up the login form.
+        mUsernameView = findViewById(R.id.username);
         mPasswordView = findViewById(R.id.password);
 
-        Button mEmailSignInButton = findViewById(R.id.email_sign_in_button);
-        mEmailSignInButton.setOnClickListener(new OnClickListener() {
+        Button mSignInButton = findViewById(R.id.sign_in_button);
+        mSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
@@ -253,26 +205,13 @@ public class LoginActivity extends AppCompatActivity {
             focusView.requestFocus();
         } else {
 
-            mLoginAuthTask = new LoginAuthTask();
+            LoginAuthTask mLoginAuthTask = new LoginAuthTask();
             try {
-                mLoginAuthTask.execute(new ClientAuth(new URL(mClient.getProjectVisitors()), "POST", username, password));
+                mLoginAuthTask.execute(new ClientAuth(new URL(mClient.getAuthApiUrl()), "POST", username, password));
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
 
-            // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
-//            Intent intent = new Intent(this, DashboardActivity.class);
-//            intent.putExtra("username", username);
-//            intent.putExtra("password", password);
-//            String url = adminConfigChoice;
-//            if (adminConfigChoice == getString(R.string.archue)) {
-//                url = adminConfigChoice + "php/login.php";
-//            } else if (adminConfigChoice == getString(R.string.redolance_india)) {
-//                url = adminConfigChoice + "php/";
-//            }
-//            intent.putExtra("url", url);
-//            startActivity(new Intent(intent));
         }
     }
 
@@ -344,6 +283,8 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
                     intent.putExtra("client", mClient);
                     startActivity(intent);
+                } else {
+                    Snackbar.make(mLoginFormView, "Password Mismatch", Snackbar.LENGTH_LONG).show();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

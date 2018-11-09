@@ -104,4 +104,7 @@
     <string name="redolance_india">https://redolanceindia.in</string>
     <string name="a2zinterior">https://a2zinterior.in</string>
     <string name="service_icon">Service Icon</string>
+    <string name="logout">Logout</string>
+    <string name="visitors">Visitors</string>
+    <string name="queries">Queries</string>
 </resources>

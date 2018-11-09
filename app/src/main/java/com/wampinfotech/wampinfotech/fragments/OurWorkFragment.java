@@ -1,5 +1,5 @@
 
-package com.wampinfotech.wampinfotech;
+package com.wampinfotech.wampinfotech.fragments;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.wampinfotech.wampinfotech.R;
 import com.wampinfotech.wampinfotech.adapters.WorkCardAdapter;
 import com.wampinfotech.wampinfotech.modals.TeamModal;
 

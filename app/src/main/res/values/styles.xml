@@ -8,9 +8,19 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.Dashboard" parent="AppTheme">
+        <item name="actionBarStyle">@style/AppTheme.NoElevation</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="AppTheme.NoElevation" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:elevation">0dp</item>
     </style>
 
     <style name="ScrollPanel">
@@ -54,6 +64,7 @@
         <item name="android:padding">@dimen/default_gap</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

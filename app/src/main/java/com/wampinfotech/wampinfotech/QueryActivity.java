@@ -1,9 +1,6 @@
 package com.wampinfotech.wampinfotech;
 
-import android.content.Context;
 import android.content.DialogInterface;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
@@ -16,6 +13,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.wampinfotech.wampinfotech.utils.SendMail;
+import com.wampinfotech.wampinfotech.utils.Utility;
 
 public class QueryActivity extends AppCompatActivity {
 
@@ -56,7 +54,7 @@ public class QueryActivity extends AppCompatActivity {
 
     public void sendMail() {
 
-        if (isNetworkAvailable()) {
+        if (Utility.isNetworkAvailable(this)) {
             //Getting content for email
             String email = _email.getText().toString().trim();
             String subject = _company.getText().toString().trim();
@@ -74,16 +72,6 @@ public class QueryActivity extends AppCompatActivity {
             Snackbar.make(findViewById(R.id.quick_query_layout),
                     "No Internet Connection", Snackbar.LENGTH_SHORT).show();
         }
-    }
-
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = null;
-        if (connectivityManager != null) {
-            activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        }
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     @Override

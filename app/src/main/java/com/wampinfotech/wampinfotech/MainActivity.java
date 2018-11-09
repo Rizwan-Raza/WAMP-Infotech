@@ -38,7 +38,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.wampinfotech.wampinfotech.fragments.AboutFragment;
+import com.wampinfotech.wampinfotech.fragments.HomeFragment;
+import com.wampinfotech.wampinfotech.fragments.OurWorkFragment;
+import com.wampinfotech.wampinfotech.fragments.ServiceFragment;
 import com.wampinfotech.wampinfotech.modals.Client;
+import com.wampinfotech.wampinfotech.utils.Utility;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RewardedVideoAdListener {
 
@@ -264,7 +269,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     void tokenDialog() {
         // Creating alert Dialog with one Button
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this, R.style.Theme_MaterialComponents_Dialog_MinWidth);
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this, R.style.Theme_AppCompat_Light_Dialog_Alert);
 
         //AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
 
@@ -296,6 +301,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         alertDialog.setPositiveButton("YES",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        if (!Utility.isNetworkAvailable(MainActivity.this)) {
+                            Snackbar.make(findViewById(R.id.content_main), "No Internet Connection", Snackbar.LENGTH_LONG).show();
+                            return;
+                        }
                         final RelativeLayout rl = findViewById(R.id.progress_view);
                         rl.setVisibility(View.VISIBLE);
                         // Write a message to the database
@@ -320,14 +329,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                     myIntent.putExtra("client", currentClient);
                                     startActivity(myIntent);
                                 } else if (resultCount == 0) {
-                                    Snackbar.make(findViewById(R.id.content_main), "Invalid Token", Snackbar.LENGTH_INDEFINITE).setAction("Try Again", new View.OnClickListener() {
+                                    Snackbar.make(findViewById(R.id.content_main), "Invalid Token", Snackbar.LENGTH_LONG).setAction("Try Again", new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
-                                            Toast.makeText(MainActivity.this, "Sorry! Are you sure you entered proper Client Token", Toast.LENGTH_SHORT).show();
+                                            tokenDialog();
                                         }
                                     }).show();
 //                                    Toast.makeText(MainActivity.this, "Sorry! Are you sure you entered proper Client Token", Toast.LENGTH_SHORT).show();
                                 } else {
+                                    Snackbar.make(findViewById(R.id.content_main), "Something went wrong!", Snackbar.LENGTH_LONG).setAction("Report", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            quickQueryRedirection(v);
+                                        }
+                                    }).show();
 //                                    Toast.makeText(MainActivity.this, "Something went wrong! Contact App Administrator.", Toast.LENGTH_SHORT).show();
                                 }
                                 rl.setVisibility(View.GONE);
