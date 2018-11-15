@@ -1,29 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="fill_vertical"
-    android:clipToPadding="false"
-    android:isScrollContainer="false"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    android:background="@android:color/white">
 
-    <LinearLayout
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/queries_list"
         android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Empty view is only visible when the list has no items. -->
+    <TextView
+        android:id="@+id/empty_view"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_centerInParent="true"
+        android:textAppearance="?android:textAppearanceMedium" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/queries"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline1" />
+    <!-- Loading indicator is only shown before the first load -->
+    <ProgressBar
+        android:id="@+id/loading_indicator"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/h_wamp_c"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline1" />
 
-    </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

@@ -1,276 +1,88 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:fadeScrollbars="true"
-    android:fillViewport="true"
-    android:scrollbarAlwaysDrawHorizontalTrack="false"
-    android:scrollbarDefaultDelayBeforeFade="@android:integer/config_mediumAnimTime"
-    android:scrollbarFadeDuration="@android:integer/config_mediumAnimTime"
-    android:scrollbarStyle="insideOverlay"
-    android:scrollbars="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/quick_query_layout"
+    style="@style/ScrollPanel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:showIn="@layout/activity_query">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/large_gap">
 
-        <ImageView
-            style="@style/FullBleedBannerImage"
-            android:contentDescription="@string/banner"
-            android:src="@drawable/banner3" />
-
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/large_gap">
+            android:layout_marginBottom="@dimen/large_gap"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:text="@string/q_query_head"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
-            <TextView
-                style="@style/MainHeadTitle"
-                android:text="@string/s_head" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/q_query_subhead"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_gap"
+            android:layout_marginBottom="@dimen/small_gap"
+            android:focusableInTouchMode="true"
+            android:focusedByDefault="false"
+            android:hint="@string/q_query_name_hint"
+            android:inputType="textPersonName" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_gap"
+            android:layout_marginBottom="@dimen/small_gap"
+            android:focusableInTouchMode="true"
+            android:focusedByDefault="false"
+            android:hint="@string/q_query_email_hint"
+            android:inputType="textEmailAddress" />
 
+        <EditText
+            android:id="@+id/mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_gap"
+            android:layout_marginBottom="@dimen/small_gap"
+            android:focusableInTouchMode="true"
+            android:focusedByDefault="false"
+            android:hint="@string/q_query_mobile_hint"
+            android:inputType="phone" />
 
-                <android.support.v7.widget.CardView
-                    style="@style/AppCard"
-                    android:tag="@string/s_sh_1">
+        <EditText
+            android:id="@+id/company"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_gap"
+            android:layout_marginBottom="@dimen/small_gap"
+            android:focusableInTouchMode="true"
+            android:focusedByDefault="false"
+            android:hint="@string/q_query_company_hint"
+            android:inputType="textCapWords" />
 
-                    <TextView
-                        style="@style/AppCardContentText"
-                        android:drawableStart="@drawable/ic_color_lens_black_24dp"
-                        android:drawableLeft="@drawable/ic_color_lens_black_24dp"
-                        android:text="@string/s_sh_1" />
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    style="@style/AppCard"
-                    android:tag="@string/h_s_c_2">
-
-                    <TextView
-                        style="@style/AppCardContentText"
-                        android:drawableStart="@drawable/ic_code_black_24dp"
-                        android:drawableLeft="@drawable/ic_code_black_24dp"
-                        android:text="@string/h_s_c_2" />
-                </android.support.v7.widget.CardView>
-
-
-                <android.support.v7.widget.CardView
-                    style="@style/AppCard"
-                    android:tag="@string/s_sh_1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_web_black_24dp"
-                        android:drawableLeft="@drawable/ic_web_black_24dp"
-                        android:gravity="center"
-                        android:padding="@dimen/default_gap"
-                        android:text="@string/s_sh_3"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@android:color/black" />
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    style="@style/AppCard"
-                    android:tag="@string/s_sh_1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-
-                        android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_archive_black_24dp"
-                        android:drawableLeft="@drawable/ic_archive_black_24dp"
-                        android:gravity="center"
-                        android:padding="@dimen/default_gap"
-                        android:text="@string/s_sh_4"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@android:color/black" />
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    style="@style/AppCard"
-                    android:tag="@string/s_sh_1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_android_black_24dp"
-                        android:drawableLeft="@drawable/ic_android_black_24dp"
-                        android:gravity="center"
-                        android:padding="@dimen/default_gap"
-                        android:text="@string/s_sh_5"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@android:color/black" />
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    style="@style/AppCard"
-                    android:tag="@string/s_sh_1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_work_black_24dp"
-                        android:drawableLeft="@drawable/ic_work_black_24dp"
-                        android:gravity="center"
-                        android:padding="@dimen/default_gap"
-                        android:text="@string/h_s_c_4"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@android:color/black" />
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    style="@style/AppCard"
-                    android:tag="@string/s_sh_1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_public_black_24dp"
-                        android:drawableLeft="@drawable/ic_public_black_24dp"
-                        android:gravity="center"
-                        android:padding="@dimen/default_gap"
-                        android:text="@string/s_sh_7"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@android:color/black" />
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    style="@style/AppCard"
-                    android:tag="@string/s_sh_1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-
-                        android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_find_in_page_black_24dp"
-                        android:drawableLeft="@drawable/ic_find_in_page_black_24dp"
-                        android:gravity="center"
-                        android:padding="@dimen/default_gap"
-                        android:text="@string/s_sh_8"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@android:color/black" />
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    style="@style/AppCard"
-                    android:tag="@string/s_sh_1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_screen_share_black_24dp"
-                        android:drawableLeft="@drawable/ic_screen_share_black_24dp"
-                        android:gravity="center"
-                        android:padding="@dimen/default_gap"
-                        android:text="@string/s_sh_9"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@android:color/black" />
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    style="@style/AppCard"
-                    android:tag="@string/s_sh_1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_settings_applications_black_24dp"
-                        android:drawableLeft="@drawable/ic_settings_applications_black_24dp"
-                        android:gravity="center"
-                        android:padding="@dimen/default_gap"
-                        android:text="@string/s_sh_10"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@android:color/black" />
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    style="@style/AppCard"
-                    android:tag="@string/s_sh_1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_desktop_windows_black_24dp"
-                        android:drawableLeft="@drawable/ic_desktop_windows_black_24dp"
-                        android:gravity="center"
-                        android:padding="@dimen/default_gap"
-                        android:text="@string/s_sh_11"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@android:color/black" />
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    style="@style/AppCard"
-                    android:tag="@string/s_sh_1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-
-                        android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_build_black_24dp"
-                        android:drawableLeft="@drawable/ic_build_black_24dp"
-                        android:gravity="center"
-                        android:padding="@dimen/default_gap"
-                        android:text="@string/s_sh_12"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@android:color/black" />
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    style="@style/AppCard"
-                    android:tag="@string/s_sh_1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_language_black_24dp"
-                        android:drawableLeft="@drawable/ic_language_black_24dp"
-                        android:gravity="center"
-                        android:padding="@dimen/default_gap"
-                        android:text="@string/s_sh_13"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@android:color/black" />
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    style="@style/AppCard"
-                    android:tag="@string/s_sh_1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_headset_mic_black_24dp"
-                        android:drawableLeft="@drawable/ic_headset_mic_black_24dp"
-                        android:gravity="center"
-                        android:padding="@dimen/default_gap"
-                        android:text="@string/s_sh_14"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@android:color/black" />
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    style="@style/AppCard"
-                    android:tag="@string/s_sh_1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-
-                        android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_shopping_cart_black_24dp"
-                        android:drawableLeft="@drawable/ic_shopping_cart_black_24dp"
-                        android:gravity="center"
-                        android:padding="@dimen/default_gap"
-                        android:text="@string/s_sh_15"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@android:color/black" />
-                </android.support.v7.widget.CardView>
-            </LinearLayout>
-        </LinearLayout>
+        <EditText
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/small_gap"
+            android:layout_marginBottom="@dimen/large_gap"
+            android:layout_weight="1"
+            android:focusableInTouchMode="true"
+            android:focusedByDefault="false"
+            android:hint="@string/q_query_desc_hint"
+            android:inputType="textLongMessage" />
     </LinearLayout>
+
 </ScrollView>

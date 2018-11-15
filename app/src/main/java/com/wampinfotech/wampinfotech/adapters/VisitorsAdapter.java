@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.wampinfotech.wampinfotech.R;
 import com.wampinfotech.wampinfotech.modals.Visitor;
+import com.wampinfotech.wampinfotech.utils.Utility;
 
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class VisitorsAdapter extends ArrayAdapter <Visitor> {
         ipView.setText(currentVisitor.getIpAddr());
 
         final TextView timeView = listItemView.findViewById(R.id.visitor_time);
-        timeView.setText(currentVisitor.getTime());
+        timeView.setText(Utility.daysUntilToday(currentVisitor.getTime()));
 
         return listItemView;
     }

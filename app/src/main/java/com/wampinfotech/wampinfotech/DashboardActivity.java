@@ -22,6 +22,8 @@ public class DashboardActivity extends AppCompatActivity {
         // To retrieve object in second Activity
         mClient = (Client) getIntent().getSerializableExtra("client");
 
+        getSupportActionBar().setElevation(0f);
+
         setContentView(R.layout.activity_dashboard);
 
         // Find the view pager that will allow the user to swipe between fragments

@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.wampinfotech.wampinfotech.R;
+import com.wampinfotech.wampinfotech.dashboard.QueriesFragment;
 import com.wampinfotech.wampinfotech.dashboard.VisitorsFragment;
 import com.wampinfotech.wampinfotech.modals.Client;
 
@@ -41,7 +42,7 @@ public class DashboardAdapter extends FragmentPagerAdapter {
         if (position == 0) {
             frag = new VisitorsFragment();
         } else if (position == 1) {
-            frag = new VisitorsFragment();
+            frag = new QueriesFragment();
 //        } else if (position == 2) {
 //            return new ColorsFragment();
 //        } else {

@@ -1,11 +1,13 @@
 package com.wampinfotech.wampinfotech.modals;
 
+import java.util.Date;
+
 public class Visitor {
     private int vid;
     private String ipAddr;
-    private String time;
+    private Date time;
 
-    public Visitor(int vid, String ipAddr, String time) {
+    public Visitor(int vid, String ipAddr, Date time) {
         this.vid = vid;
         this.ipAddr = ipAddr;
         this.time = time;
@@ -19,7 +21,7 @@ public class Visitor {
         return ipAddr;
     }
 
-    public String getTime() {
+    public Date getTime() {
         return time;
     }
 }

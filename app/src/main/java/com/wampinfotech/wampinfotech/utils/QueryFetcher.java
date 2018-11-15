@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.wampinfotech.wampinfotech.modals.Visitor;
+import com.wampinfotech.wampinfotech.modals.Query;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,18 +19,18 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class VisitorFetcher {
+public class QueryFetcher {
 
     /**
      * Tag for the log messages
      */
-    private static final String LOG_TAG = VisitorFetcher.class.getSimpleName();
+    private static final String LOG_TAG = QueryFetcher.class.getSimpleName();
 
 
-    public VisitorFetcher() {
+    public QueryFetcher() {
     }
 
-    public static List <Visitor> extractVisitors(Context context, URL url) {
+    public static List <Query> extractQueries(Context context, URL url) {
 //        Log.e(LOG_TAG, "Extracting Characters - extractCharacters()");
 
         // Perform HTTP request to the URL and receive a JSON response back
@@ -42,23 +42,22 @@ public class VisitorFetcher {
         }
 
         // Extract relevant fields from the JSON response and create an {@link Event} object
-        return extractVisitorsFromJson(jsonResponse);
+        return extractQueriesFromJson(jsonResponse);
     }
 
     /**
      * Return an {@link List} object by parsing out information
      * about the first earthquake from the input earthquakeJSON string.
      */
-    private static List <Visitor> extractVisitorsFromJson(String charsJSON) {
+    private static List <Query> extractQueriesFromJson(String charsJSON) {
 
-        String baseUrl = "https://terrigen-cdn-dev.marvel.com/content/prod/1x/";
         // If the JSON string is empty or null, then return early.
         if (TextUtils.isEmpty(charsJSON)) {
             return null;
         }
 
         // Create an empty ArrayList that we can start adding earthquakes to
-        List <Visitor> visitors = new ArrayList <>();
+        List <Query> queries = new ArrayList <>();
 
         // Try to parse the SAMPLE_JSON_RESPONSE. If there's a problem with the way the JSON
         // is formatted, a JSONException exception object will be thrown.
@@ -71,12 +70,16 @@ public class VisitorFetcher {
             JSONArray charactersArray = new JSONArray(charsJSON);
 
             for (int i = 0; i < charactersArray.length(); i++) {
-                JSONObject visitor = charactersArray.getJSONObject(i);
-                String ipAddr = visitor.getString("ip_addr");
-                Date time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).parse(visitor.getString("time"));
-                int vid = visitor.getInt("_vid");
-                Visitor newOne = new Visitor(vid, ipAddr, time);
-                visitors.add(newOne);
+                JSONObject query = charactersArray.getJSONObject(i);
+                String name = query.getString("name");
+                String number = query.getString("number");
+                String email = query.getString("email");
+                String msg = query.getString("msg");
+
+                Date time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).parse(query.getString("time"));
+                int qid = query.getInt("_qid");
+                Query newOne = new Query(qid, name, number, email, msg, time);
+                queries.add(newOne);
             }
 //            for (int i = 0; i < charactersArray.length(); i++) {
 //                JSONObject character = charactersArray.getJSONObject(i);
@@ -106,6 +109,6 @@ public class VisitorFetcher {
         }
 
         // Return the list of earthquakes
-        return visitors;
+        return queries;
     }
 }
