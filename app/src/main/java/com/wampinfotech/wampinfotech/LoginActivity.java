@@ -21,22 +21,27 @@ import android.widget.Toast;
 
 import com.wampinfotech.wampinfotech.modals.Client;
 import com.wampinfotech.wampinfotech.modals.ClientAuth;
+import com.wampinfotech.wampinfotech.utils.NoSSLv3SocketFactory;
+import com.wampinfotech.wampinfotech.utils.Utility;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.charset.Charset;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 
+import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocketFactory;
 
 /**
  * A login screen that offers login via email/password.
@@ -57,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
     private View mProgressView;
     private View mLoginFormView;
 
-    private static String makeHttpRequest(ClientAuth client) throws IOException {
+    private String makeHttpRequest(ClientAuth client) throws IOException {
         String jsonResponse = "";
 
         // If the URL is null, then return early.
@@ -68,12 +73,32 @@ public class LoginActivity extends AppCompatActivity {
         HttpsURLConnection urlConnection = null;
         InputStream inputStream = null;
         try {
+            if (android.os.Build.VERSION.SDK_INT < 21) {
+                HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
+
+                    @Override
+                    public boolean verify(String hostname, SSLSession session) {
+                        Log.i("RestUtilImpl", "Approving certificate for " + hostname);
+                        return true;
+                    }
+
+                });
+                SSLContext sslcontext = SSLContext.getInstance("TLSv1");
+
+                sslcontext.init(null,
+                        null,
+                        null);
+                SSLSocketFactory NoSSLv3Factory = new NoSSLv3SocketFactory(sslcontext.getSocketFactory());
+
+                HttpsURLConnection.setDefaultSSLSocketFactory(NoSSLv3Factory);
+            }
             urlConnection = (HttpsURLConnection) client.getAuthUrl().openConnection();
 //            urlConnection.setReadTimeout(10000 /* milliseconds */);
 //            urlConnection.setConnectTimeout(15000 /* milliseconds */);
             urlConnection.setRequestMethod(client.getMethod());
             urlConnection.setDoInput(true);
             urlConnection.setDoOutput(true);
+//            checkTls();
 
             String query = "username=" + client.getUsername() + "&password=" + client.getPassword();
 
@@ -92,12 +117,16 @@ public class LoginActivity extends AppCompatActivity {
             // then read the input stream and parse the response.
             if (urlConnection.getResponseCode() == 200) {
                 inputStream = urlConnection.getInputStream();
-                jsonResponse = readFromStream(inputStream);
+                jsonResponse = Utility.readFromStream(inputStream);
             } else {
                 Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             }
         } catch (IOException e) {
             Log.e(LOG_TAG, "Got a Problem, " + e.getMessage(), e);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (KeyManagementException e) {
+            e.printStackTrace();
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -121,23 +150,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Convert the {@link InputStream} into a String which contains the
-     * whole JSON response from the server.
-     */
-    private static String readFromStream(InputStream inputStream) throws IOException {
-        StringBuilder output = new StringBuilder();
-        if (inputStream != null) {
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charset.forName("UTF-8"));
-            BufferedReader reader = new BufferedReader(inputStreamReader);
-            String line = reader.readLine();
-            while (line != null) {
-                output.append(line);
-                line = reader.readLine();
-            }
-        }
-        return output.toString();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

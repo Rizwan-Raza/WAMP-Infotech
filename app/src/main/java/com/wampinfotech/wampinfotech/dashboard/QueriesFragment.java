@@ -20,9 +20,13 @@ import com.wampinfotech.wampinfotech.adapters.QueriesAdapter;
 import com.wampinfotech.wampinfotech.adapters.QueryLoader;
 import com.wampinfotech.wampinfotech.modals.Client;
 import com.wampinfotech.wampinfotech.modals.Query;
+import com.wampinfotech.wampinfotech.utils.Utility;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class QueriesFragment extends Fragment implements LoaderManager.LoaderCallbacks <List <Query>> {
 
@@ -62,6 +66,7 @@ public class QueriesFragment extends Fragment implements LoaderManager.LoaderCal
                 Query query = mAdapter.getItem(position);
                 Intent myIntent = new Intent(getContext(), QueryDetails.class);
                 myIntent.putExtra("query", query);
+                myIntent.putExtra("queryURL", client.getQueriesApiUrl());
                 startActivity(myIntent);
             }
         });
@@ -94,6 +99,9 @@ public class QueriesFragment extends Fragment implements LoaderManager.LoaderCal
         Uri baseUri = Uri.parse(REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
+        String salt = "*WAMP*";
+        String anotherOne = (new SimpleDateFormat("yy", Locale.ENGLISH)).format(Calendar.getInstance().getTime());
+        uriBuilder.appendQueryParameter("token", Utility.md5(salt + anotherOne + salt));
         uriBuilder.appendQueryParameter("order", "time");
         uriBuilder.appendQueryParameter("sort", "DESC");
 

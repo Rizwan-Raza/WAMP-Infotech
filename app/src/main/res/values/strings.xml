@@ -111,4 +111,5 @@
     <string name="no_visitors">No Visitors Found</string>
     <string name="no_queries">No queries found</string>
     <string name="title_activity_query_detail">Query Detail</string>
+    <string name="delete">Delete</string>
 </resources>

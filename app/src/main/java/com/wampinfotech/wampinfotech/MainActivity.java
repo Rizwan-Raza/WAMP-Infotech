@@ -284,7 +284,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         input.setHintTextColor(Color.GRAY);
         input.setLayoutParams(lp);
         input.setInputType(InputType.TYPE_CLASS_NUMBER);
-        input.setWidth(LinearLayout.LayoutParams.WRAP_CONTENT);
+        input.setWidth(100);
         input.setGravity(Gravity.CENTER);
         input.setFilters(new InputFilter[]{new InputFilter.LengthFilter(8)});
         final RelativeLayout view = new RelativeLayout(MainActivity.this);
